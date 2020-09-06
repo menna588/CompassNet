@@ -14,10 +14,10 @@ public class LoginPage extends TestBase {
     @FindBy(xpath = "//a[@class='header-btn header-btn-transparent toggle-login']")
     WebElement loginbtn ;
 
-    @FindBy(xpath = "//div[@class='fp-login-selector']//div[@class='links']")
+    @FindBy(xpath = "//div[@class='fp-login-selector active']//div[@class='links']")
     WebElement loginpopup ;
 
-    @FindBy(xpath = "//div[@class='fp-login-selector active']//a[contains(text(),'Personal')]")
+    @FindBy(xpath = "//a[contains(text(),'Personal')]")
     WebElement loginpersonal ;
 
     @FindBy(xpath = "//div[@class='fp-login-selector active']//a[contains(text(),'Business')]")
@@ -53,40 +53,45 @@ public class LoginPage extends TestBase {
     @FindBy(xpath = "//span[contains(text(),'User not found.')]")
     WebElement emailerormsg ;
 
-public void clickonlogin(){
+    public void clickonlogin(){
+
     loginbtn.click();
 }
-public boolean popupIsDisplayed(){
- return   loginpopup.isDisplayed();
+    public boolean popupIsDisplayed(){
+
+    return   loginpopup.isDisplayed();
 }
-public void clickonpersonal(){
+    public void clickonpersonal(){
     loginpersonal.click();
 }
-public String getURL(){
-    return driver.getCurrentUrl();
+    public String getURL(){
+
+        return driver.getCurrentUrl();
 }
-public boolean titleIsDisplayed(){
-    return  logintitle.isDisplayed();
+     public boolean titleIsDisplayed(){
+
+        return  logintitle.isDisplayed();
 }
-public String dologin(){
+      public String dologin(){
     email.sendKeys(prop.getProperty("email"));
     password.sendKeys(prop.getProperty("password"));
     loginbutton.click();
 
     return prop.getProperty("profileURL");
 }
-public boolean usericonIsDisplayed(){
+    public boolean usericonIsDisplayed(){
     return usericon.isDisplayed();
 
 }
-public void doinvalidpass(){
+   public void doinvalidpass(){
     email.sendKeys(prop.getProperty("email"));
     password.sendKeys("123456");
     loginbutton.click();
 
 }
-public boolean passerormsgIsDisplayed(){
-    return  passerormsg.isDisplayed();
+    public boolean passerormsgIsDisplayed(){
+
+        return  passerormsg.isDisplayed();
 }
     public void doinvalidemail(){
         email.sendKeys("menna@mail.com");
@@ -96,6 +101,7 @@ public boolean passerormsgIsDisplayed(){
 
     }
     public boolean emailerormsgIsDisplayed(){
+
         return  emailerormsg.isDisplayed();
     }
 
